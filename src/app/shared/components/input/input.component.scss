@@ -1,0 +1,79 @@
+@import '../../../scss/colors.scss';
+
+.form-input {
+    width: 100%;
+    margin: 20px 0;
+    position: relative;
+    
+    input {
+        padding: 15px;
+        padding-right: 40px;
+        border: 1px solid $border-light;
+        outline: none;
+        width: calc(100% - 57px);
+        letter-spacing: 1px;
+        border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -o-border-radius: 2px;
+
+        &::placeholder {
+            letter-spacing: 1px;
+        }
+
+        &:focus {
+            border-color: $dark;
+        }
+    }
+
+    .icon-error {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 40px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        i {
+            margin: 0;
+            margin-left: -2px;
+            padding: 0;
+            color: $danger;
+        }
+    }
+
+    .show-password {
+        position: absolute;
+        right: 25px;
+        top: 0;
+        width: 40px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+
+        i {
+            margin: 0;
+            padding: 0;
+            color: $main-light;
+            font-size: 14px;
+        }
+    }
+}
+
+.valid-input {
+    color: $green !important;
+}
+
+.has-error {
+    border-color: $danger !important;
+}
+
+.space-for-i {
+    width: calc(100% - 77px) !important;
+    padding-right: 60px !important;
+}

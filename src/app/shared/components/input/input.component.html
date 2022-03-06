@@ -1,0 +1,35 @@
+<div class="form-input">
+    <input 
+        [ngClass]="{
+            'has-error': formField?.invalid && formField?.dirty,
+            'space-for-i': defaultType === 'password'
+        }"
+        [type]="type"
+        [placeholder]="placeholder"
+        [value]="value"
+        [disabled]="isDisabled"
+        (input)="onChange( $event )"
+        (blur)="touched()"
+        spellcheck="false"
+    />
+
+    <div class="icon-error" *ngIf="formField?.invalid && formField?.dirty">
+        <i class="fa-solid fa-circle-xmark"></i>
+    </div>
+    <div class="icon-error" *ngIf="formField?.valid">
+        <i class="fa-solid fa-circle-check valid-input"></i>
+    </div>
+
+    <div class="show-password" *ngIf="formField?.invalid && formField?.dirty && defaultType === 'password'">
+        <i (click)="togglePasswordVisible();"
+            [ngClass]="defaultType === 'password' && type === 'text' ? 
+            'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+        ></i>
+    </div>
+    <div class="show-password" *ngIf="formField?.valid && defaultType === 'password'">
+        <i (click)="togglePasswordVisible();"
+            [ngClass]="defaultType === 'password' && type === 'text' ? 
+            'fa-solid fa-eye' : 'fa-solid fa-eye-slash'"
+        ></i>
+    </div>
+</div>

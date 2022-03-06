@@ -1,0 +1,23 @@
+<div class="auth-form">
+    <div class="sign-in">
+        <img src="../../../assets/flag.png" alt="flag.png">
+        <h3>Favor de ingresar su correo electronico para iniciar la recuperación de su cuenta.</h3>
+        <form [formGroup]="recoverForm" (ngSubmit)="recover();">
+            <app-input 
+                type="text"
+                placeholder="Email: email@email.com"
+                [parentForm]="recoverForm"
+                fieldName="email"
+                formControlName="email"
+            ></app-input>
+    
+            <button 
+                type="submit" [disabled]="recoverForm.invalid" 
+                [ngClass]="recoverForm.invalid ? 'btn btn-disabled' : 'btn'"
+            >Enviar email</button>
+            <p>¿Recordaste tu contraseña? <span routerLink="/auth/login">Iniciar sesión</span></p>
+        </form>
+    </div>
+</div>
+
+

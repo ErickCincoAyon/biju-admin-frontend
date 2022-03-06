@@ -1,0 +1,52 @@
+@import '../../scss/colors.scss';
+
+.auth-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .sign-in {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+    
+        img {
+            width: 50%;
+            margin: -20px 0 5px;
+        }
+        
+        h3 {
+            width: 100%;
+            letter-spacing: 1px;
+            font-size: 15px;
+            color: $font-gray;
+            margin: 0;
+            margin-bottom: 20px;
+            line-height: 25px;
+            text-align: left;
+        }
+    
+        form {
+            margin-top: 0;
+            width: 100%;
+    
+            p {
+                margin-top: 10px;
+                width: 100%;
+                font-size: 13px;
+                color: $font-gray;
+                font-weight: bold;
+                text-align: left;
+    
+                span {
+                    float: right;
+                    color: $main;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

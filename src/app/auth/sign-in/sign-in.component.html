@@ -1,0 +1,31 @@
+<div class="auth-form">
+    <div class="sign-in">
+        <img src="../../../assets/flag.png" alt="flag.png">
+        <h3>Bienvenido de nuevo, favor de iniciar sesion en su cuenta.</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="login();">
+            <app-input 
+                type="text"
+                placeholder="Email: email@email.com"
+                [parentForm]="loginForm"
+                fieldName="email"
+                formControlName="email"
+            ></app-input>
+    
+            <app-input 
+                type="password"
+                placeholder="Password: ******"
+                [parentForm]="loginForm"
+                fieldName="password"
+                formControlName="password"
+            ></app-input>
+    
+            <button 
+                type="submit" [disabled]="loginForm.invalid" 
+                [ngClass]="loginForm.invalid ? 'btn btn-disabled' : 'btn'"
+            >Iniciar Sesión</button>
+            <p>¿Olvidaste tu contraseña?<span routerLink="/auth/recuperar-cuenta">Recuperar contraseña</span></p>
+        </form>
+    </div>
+</div>
+
+
