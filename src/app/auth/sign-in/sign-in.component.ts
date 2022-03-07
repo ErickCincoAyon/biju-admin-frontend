@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { LoginModel } from '../models/login.model';
 import { Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { AuthState } from '../store/auth.state';
@@ -56,12 +55,8 @@ export class SignInComponent implements OnInit, OnDestroy {
 
   public login() {
 
-    let sendLogin: LoginModel = this.loginForm.getRawValue();
-
-    if ( this.loginForm.valid ) {
-      this._store.dispatch( signIn({ credentials: sendLogin }) );
-    }
-
+    this._store.dispatch( signIn({ credentials: this.loginForm.getRawValue() }) );
+    
   }
 
   ngOnDestroy() {

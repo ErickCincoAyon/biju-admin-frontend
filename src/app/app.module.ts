@@ -32,7 +32,7 @@ import { AuthModule } from './auth/auth.module';
     }),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut: 10000,
+      timeOut: 5000,
       preventDuplicates: true,
     }),
   ],

@@ -1,8 +1,4 @@
-export class MessageModel {
-
-    constructor(
-        public message?: string,
-        public access_token?: string,
-    ){}
-
+export interface MessageModel {
+    message?: string;
+    access_token?: string;
 }

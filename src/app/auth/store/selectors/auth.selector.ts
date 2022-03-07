@@ -13,7 +13,7 @@ export const selectAccessToken = createSelector(
     (state: AuthState) => state.access_token
 );
 
-export const selectAdmin= createSelector(
+export const selectAdmin = createSelector(
     getAuthFeatureState,
     (state: AuthState) => state.admin
 );

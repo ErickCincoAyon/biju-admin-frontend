@@ -8,7 +8,7 @@ import { authFeatureName } from './store/auth.state';
 
 import { AuthRoutingModule } from './auth.routing';
 import { SignInComponent } from './sign-in/sign-in.component';
-import { MainComponent } from './main.component';
+import { AuthComponent } from './auth.component';
 import { SharedModule } from '../shared/shared.module';
 import { RecoverComponent } from './recover/recover.component';
 import { SendCodeComponent } from './send-code/send-code.component';
@@ -19,13 +19,13 @@ import { AuthEffects } from './store/effects/auth.effect';
 @NgModule({
   declarations: [
     SignInComponent,
-    MainComponent,
+    AuthComponent,
     RecoverComponent,
     SendCodeComponent,
   ],
   exports: [
     SignInComponent,
-    MainComponent,
+    AuthComponent,
     RecoverComponent,
     SendCodeComponent,
   ],

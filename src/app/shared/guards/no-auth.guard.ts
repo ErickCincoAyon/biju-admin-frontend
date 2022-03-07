@@ -1,41 +1,28 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, CanLoad, Route, UrlSegment, Router } from '@angular/router';
-import { take, map } from 'rxjs/operators';
+import { Router, CanActivate } from '@angular/router';
 import { AuthService } from 'src/app/auth/services/auth.service';
-import { Observable } from 'rxjs';
-import { Store } from '@ngrx/store';
-import { AuthState } from 'src/app/auth/store/auth.state';
 
 @Injectable({
   providedIn: 'root'
 })
-export class NoAuthGuard implements CanActivate, CanLoad {
+export class NoAuthGuard implements CanActivate {
 
-    constructor( 
-        private readonly _authService: AuthService,
-        private readonly _store: Store<AuthState>,
-        private readonly _router: Router,
-    ) { }
+  constructor(
+    private _authService: AuthService,
+    private _router: Router
+  ) {}
 
   canActivate() {
-    // return this.authService.isAuth();
-    return true;
+    let access_token: string = this._authService.getAccessToken();
+    if ( !access_token ) {
+
+      return true;
+
+    } else {
+
+      this._router.navigate(['/']);
+      return false;
+
+    }
   }
-
-
-  canLoad(): Observable<boolean> {
-    return this._store.select( 'access_token' ).pipe(
-        take(1),
-        map(( access_token ) => {
-            if ( access_token ) {
-              return false;
-            } else {
-              this._router.navigate(['/']);
-              return true;
-            }
-        })
-    );
-  }
-
-
 }

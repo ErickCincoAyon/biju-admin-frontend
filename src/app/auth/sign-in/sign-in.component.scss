@@ -7,15 +7,40 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: $white;
 
     .sign-in {
         width: 80%;
         margin: 0 auto;
         text-align: center;
-    
+        position: relative;
+
+        h2 {
+            user-select: none;
+            position: absolute;
+            text-align: center;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+            margin: 0px auto;
+            top: -5px;
+            color: $white;
+            font-size: 45px;
+            letter-spacing: 1px;
+            font-style: italic;
+            text-shadow: -1px -1px 0px $main,
+              2px 2px 0px $main,
+              5px 5px 0px $main;
+        }
+        
         img {
             width: 50%;
-            margin: -20px 0 5px;
+            margin: -20px 0 20px;
+            filter: invert(15%) sepia(0%) saturate(4%) hue-rotate(37deg) brightness(95%) contrast(93%);
+        }
+
+        .keys {
+            width: 20%;
         }
         
         h3 {
@@ -49,4 +74,8 @@
             }
         }
     }
+}
+
+.test {
+    background-color: red !important;
 }
