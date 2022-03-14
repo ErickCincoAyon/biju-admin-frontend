@@ -1,0 +1,68 @@
+@import '../../../scss/colors.scss';
+
+.header {
+    width: 100%;
+    height: 80px;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    .left-side {
+        height: 100%;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+
+        h3 {
+            user-select: none;
+            position: absolute;
+            text-align: center;
+            z-index: 3;
+            text-align: center;
+            color: $white;
+            font-size: 35px;
+            letter-spacing: 1px;
+            font-style: italic;
+            text-shadow: -1px -1px 0px $main,
+              2px 2px 0px $main,
+              5px 5px 0px $main;
+            cursor: pointer;
+        }
+
+        img {
+            height: 80%;
+            position: relative;
+            z-index: 1;
+            cursor: pointer;
+        }
+
+        .keys-in-logo {
+            position: absolute;
+            z-index: 2;
+            width: 20px;
+            right: 54px;
+            top: -13px;
+            cursor: pointer;
+        }
+    }
+
+    .right-side {
+        height: 100%;
+        width: 500px;
+        margin-left: auto;
+
+        ul {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            list-style: none;
+
+        }
+    }
+}

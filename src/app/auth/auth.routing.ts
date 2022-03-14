@@ -4,6 +4,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthComponent } from './auth.component';
 import { RecoverComponent } from './recover/recover.component';
 import { SendCodeComponent } from './send-code/send-code.component';
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 const routes: Routes = [
     {
@@ -13,6 +14,7 @@ const routes: Routes = [
             { path: 'iniciar-sesion', component: SignInComponent },
             { path: 'enviar-codigo', component: SendCodeComponent },
             { path: 'recuperar-cuenta', component: RecoverComponent },
+            { path: 'nueva-contraseña/:token', component: NewPasswordComponent },
             { path: '**', redirectTo: 'iniciar-sesion' },
         ]
     },

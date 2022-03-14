@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   wsUrl: 'http://192.168.100.15:4002/api/v1',
-  appUrl: 'http://localhost:4200/'
+  appUrl: 'http://localhost:4200'
 };
 
 /*

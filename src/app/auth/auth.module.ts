@@ -15,6 +15,7 @@ import { SendCodeComponent } from './send-code/send-code.component';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './store/effects/auth.effect';
+import { NewPasswordComponent } from './new-password/new-password.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { AuthEffects } from './store/effects/auth.effect';
     AuthComponent,
     RecoverComponent,
     SendCodeComponent,
+    NewPasswordComponent,
   ],
   exports: [
     SignInComponent,

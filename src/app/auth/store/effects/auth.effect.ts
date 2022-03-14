@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { AuthService } from '../../services/auth.service';
-import { successSignIn, AuthActionTypes, sendCode, successSendCode, authError, successGetAdmin, successRecover, successRenewAccessToken } from '../actions/auth.action';
+import { successSignIn, AuthActionTypes, successSendCode, authError, successGetAdmin, successRecover, successRenewAccessToken, successNewPassword } from '../actions/auth.action';
 import { map, switchMap, catchError } from 'rxjs/operators';
 import { of } from "rxjs";
 
@@ -49,11 +49,28 @@ export class AuthEffects {
     recover$ = createEffect(() => 
         this.actions$.pipe(
             ofType( AuthActionTypes.AUTH_RECOVER ),
-            map(( action: any ) => action.email ),
+            map(( action: any ) => action ),
             switchMap(( action ) => 
-                this._authService.recover( action ).pipe(
+                this._authService.recover( action.email, action.appUrl ).pipe(
                     map((value) => {
                         return successRecover({ res: value })
+                    }),
+                    catchError(( error ) => {
+                        return of( authError({ res: error }))
+                    })
+                )
+            )
+        )
+    );
+
+    newPassword$ = createEffect(() => 
+        this.actions$.pipe(
+            ofType( AuthActionTypes.AUTH_NEW_PASSWORD ),
+            map(( action: any ) => action.form ),
+            switchMap(( action ) => 
+                this._authService.newPassword( action ).pipe(
+                    map((value) => {
+                        return successNewPassword({ res: value })
                     }),
                     catchError(( error ) => {
                         return of( authError({ res: error }))

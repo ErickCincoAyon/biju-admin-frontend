@@ -36,6 +36,7 @@
         img {
             width: 50%;
             margin: -20px 0 20px;
+            user-select: none;
             filter: invert(15%) sepia(0%) saturate(4%) hue-rotate(37deg) brightness(95%) contrast(93%);
         }
 

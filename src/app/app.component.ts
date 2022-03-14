@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { AuthState } from './auth/store/auth.state';
-import { selectError, selectAccessToken } from './auth/store/selectors/auth.selector';
+import { selectError } from './auth/store/selectors/auth.selector';
 import { resetAuthError, renewAccessToken } from './auth/store/actions/auth.action';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
@@ -18,8 +18,10 @@ export class AppComponent implements OnInit {
     private readonly _toastrService: ToastrService,
     private readonly _router: Router,
   ) {
+    
     ( localStorage.getItem('access_token') ) && 
       this._store.dispatch( renewAccessToken({ token: localStorage.getItem('access_token')! }));
+      
   }
 
   ngOnInit(): void {

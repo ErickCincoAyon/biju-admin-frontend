@@ -14,6 +14,9 @@ const _authReducer = createReducer(
     on( actions.recover, state => ({ ...state })),
     on( actions.successRecover, ( state, { res }) => ({ ...state, message: res.data?.message })),
 
+    on( actions.newPassword, state => ({ ...state })),
+    on( actions.successNewPassword, ( state, { res }) => ({ ...state, access_token: res.data?.access_token })),
+
     on( actions.getAdmin, state => ({ ...state })),
     on( actions.successGetAdmin, ( state, { res }) => ({ ...state, admin: res.data })),
 

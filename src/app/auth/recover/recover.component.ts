@@ -7,6 +7,9 @@ import { recover, resetAuthError, resetMessage } from '../store/actions/auth.act
 import { takeUntil, Subject } from 'rxjs';
 import { selectError, selectMessage } from '../store/selectors/auth.selector';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from '../../../environments/environment';
+
+const appUrl = environment.appUrl;
 
 @Component({
   selector: 'app-recover',
@@ -55,7 +58,7 @@ export class RecoverComponent implements OnInit, OnDestroy {
   recover() {
     
     if ( this.recoverForm.valid ) {
-      this._store.dispatch( recover({ email: this.recoverForm.controls['email'].value  }));
+      this._store.dispatch( recover({ email: this.recoverForm.controls['email'].value, appUrl: `${ appUrl }/auth/nueva-contraseña` }));
     }
     
   }

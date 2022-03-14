@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, skipWhile, take, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { LoginModel } from '../models/login.model';
 import { CodeToLoginModel } from '../models/code-to-login.model';
@@ -10,6 +10,7 @@ import { AdminModel } from '../models/admin.model';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../store/auth.state';
 import { selectAccessToken, selectAdmin } from '../store/selectors/auth.selector';
+import { NewPasswordModel } from '../models/new-password.model';
 
 const url = environment.wsUrl;
 
@@ -24,7 +25,7 @@ export class AuthService {
   ) { }
 
   public signin( admin: LoginModel  ): Observable<GeneralModel<MessageModel>> {
-
+    
     return this._http.post(`${ url }/auth/admin/signin`, admin );
 
   }
@@ -40,9 +41,20 @@ export class AuthService {
 
   }
 
-  public recover( email: string ): Observable<GeneralModel<MessageModel>> {
+  public recover( email: string, appUrl: string ): Observable<GeneralModel<MessageModel>> {
 
-    return this._http.post(`${ url }/auth/admin/recover`, { email });
+    return this._http.post(`${ url }/auth/admin/recover`, { email, url: appUrl });
+
+  }
+
+  public newPassword( form: NewPasswordModel ): Observable<GeneralModel<MessageModel>> {
+    
+    return this._http.post(`${ url }/auth/admin/new-password`, form )
+    .pipe(
+      tap(( response: GeneralModel<MessageModel> ) => {
+        localStorage.setItem('access_token', response.data!.access_token! );
+      })
+    );
 
   }
 
