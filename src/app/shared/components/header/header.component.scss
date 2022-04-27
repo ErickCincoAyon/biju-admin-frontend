@@ -8,61 +8,177 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    
-    .left-side {
-        height: 100%;
-        width: 200px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-
-        h3 {
-            user-select: none;
-            position: absolute;
-            text-align: center;
-            z-index: 3;
-            text-align: center;
-            color: $white;
-            font-size: 35px;
-            letter-spacing: 1px;
-            font-style: italic;
-            text-shadow: -1px -1px 0px $main,
-              2px 2px 0px $main,
-              5px 5px 0px $main;
-            cursor: pointer;
-        }
-
-        img {
-            height: 80%;
-            position: relative;
-            z-index: 1;
-            cursor: pointer;
-        }
-
-        .keys-in-logo {
-            position: absolute;
-            z-index: 2;
-            width: 20px;
-            right: 54px;
-            top: -13px;
-            cursor: pointer;
-        }
-    }
 
     .right-side {
         height: 100%;
-        width: 500px;
+        max-width: 330px;
         margin-left: auto;
+        padding: 0 30px;
 
-        ul {
+        .admin-info {
             width: 100%;
             height: 100%;
             display: flex;
             align-items: center;
+            justify-content: center;
             flex-wrap: wrap;
-            list-style: none;
+            position: relative;
 
+            i {
+                font-size: 20px;
+                color: $font-dark;
+                transition: $transition;
+                margin-right: 10px;
+                cursor: pointer;
+            }
+            
+            button {
+                padding: 5px 15px;
+                border: 0;
+                border-radius: 3px;
+                color: $font-white;
+                text-transform: uppercase;
+                font-size: 11px;
+                letter-spacing: 1px;
+                margin: 0 10px 0 0;
+                cursor: pointer;
+                transition: $transition;
+
+                i {
+                    color: $font-white;
+                    font-size: 11px;
+                }
+
+                &:hover {
+                    box-shadow: $shadow;
+                }
+            }
+
+            .admin-image {
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                position: relative;
+                transition: $transition;
+                cursor: pointer;
+
+                img {
+                    width: 25px;
+                    height: 25px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    border: 1px solid $border-dark;
+                    transition: $transition;
+                    margin-top: -2px;
+                }
+
+                .dot-online {
+                    position: absolute;
+                    z-index: 5;
+                    width: 10px;
+                    height: 10px;
+                    background-color: $green;
+                    border-radius: 50%;
+                    bottom: -1px;
+                    right: -3px;
+                    box-shadow: $box-shadow;
+                }
+
+                &:hover {
+                    box-shadow: $shadow;
+                }
+            }
+
+            .admin-card {
+                position: absolute;
+                width: calc( 100% + 60px );
+                background-color: white;
+                top: 100%;
+                margin-left: 500%;
+                box-shadow: $box-shadow;
+                border-radius: 2px;
+
+                ul {
+                    height: 100%;
+                    list-style: none;
+
+                    .header-card {
+                        padding: 20px 25px;
+                        display: flex;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        border-bottom: 1px solid $border-light;
+
+                        img {
+                            width: 100px;
+                            height: 100px;
+                            object-fit: cover;
+                            border-radius: 3px;
+                            border: 1px solid $border-light;
+                        }
+
+                        div {
+                            flex: 1 0 30%;
+                            height: 100px;
+                            padding-left: 20px;
+                            position: relative;
+
+                            h3 {
+                                color: $font-dark;
+                                font-size: 14px;
+                                margin: 0;
+                                width: 100%;
+                                line-height: 20px;
+                                font-weight: lighter;
+                                letter-spacing: 1px;
+                            }
+
+                            h4 {
+                                position: absolute;
+                                bottom: 0;
+                                width: calc( 100% - 20px );
+                                color: $font-white;
+                                text-transform: uppercase;
+                                padding: 10px 0;
+                                text-align: center;
+                                font-size: 10px;
+                                letter-spacing: 1px;
+                                border-radius: 2px;
+                            }
+                        }
+
+                    }
+                    
+                    li {
+                        padding: 20px 30px;
+                        font-size: 14px;
+                        color: $font-dark;
+                        letter-spacing: 1px;
+                        cursor: pointer;
+                        transition: $transition;
+
+                        i {
+                            color: $font-dark;
+                            font-size: 15px;
+                            font-weight: bold;
+                        }
+
+                        &:hover {
+                            background-color: $dark;
+                            color: $font-white;
+                            box-shadow: $shadow;
+
+                            i {
+                                color: $font-white;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
+}
+
+.status {
+    font-weight: 400!important;
 }

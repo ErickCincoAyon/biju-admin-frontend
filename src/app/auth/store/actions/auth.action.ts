@@ -26,6 +26,8 @@ export enum AuthActionTypes {
     AUTH_RENEW_ACCESS_TOKEN = '[Auth] Renew access token',
     AUTH_RENEW_ACCESS_TOKEN_SUCCESS = '[Auth] Success renew access token',
 
+    AUTH_LOGOUT = '[Auth] Logout',
+
     AUTH_ERROR = '[Auth] Error',
     AUTH_RESET_ERROR = '[Auth] Reset error',
 } 
@@ -83,6 +85,10 @@ export const renewAccessToken = createAction(
 export const successRenewAccessToken = createAction(
     AuthActionTypes.AUTH_RENEW_ACCESS_TOKEN_SUCCESS,
     props<{ res: GeneralModel<MessageModel> }>()
+);
+// -- //
+export const logout = createAction(
+    AuthActionTypes.AUTH_LOGOUT
 );
 // -- //
 export const authError = createAction(

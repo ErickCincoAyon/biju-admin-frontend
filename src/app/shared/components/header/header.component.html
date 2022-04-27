@@ -1,10 +1,46 @@
 <div class="header">
     <div class="right-side">
-        <ul>
-            <li>asdasd</li>
-            <li>asdasd</li>
-            <li>asdasd</li>
-            <li>asdasd</li>
-        </ul>
+        <div class="admin-info" *ngIf="admin" (click)="$event.stopPropagation();">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-inbox"></i>
+            <button 
+                (click)="toggleSettings( !settings );"
+                [ngClass]="{ 
+                    'challenger-bg': admin.admin === 'challenger',
+                    'master-bg': admin.admin === 'master',
+                    'diamond-bg': admin.admin === 'diamond',
+                    'platinum-bg': admin.admin === 'platinum'
+                }"
+            ><i class="fas fa-check-circle"></i>{{ admin.admin }}</button>
+            <div class="admin-image" (click)="toggleSettings( !settings );">
+                <img src="{{ url + '/image/admin/' + admin.avatar }}" alt="avatar.png">
+                <div class="dot-online"></div>
+            </div>
+            
+
+            <div class="admin-card" #adminCard>
+                <ul>
+                    <div 
+                        class="header-card"
+                    >
+                        <img src="{{ url + '/image/admin/' + admin.avatar }}" alt="avatar.png">
+                        <div>
+                            <h3>{{ admin.name }}</h3>
+                            <h3>{{ admin.surname }}</h3>
+                            <h4
+                                [ngClass]="{ 
+                                    'challenger-bg': admin.admin === 'challenger',
+                                    'master-bg': admin.admin === 'master',
+                                    'diamond-bg': admin.admin === 'diamond',
+                                    'platinum-bg': admin.admin === 'platinum'
+                                }"
+                            >{{ admin.admin }}</h4>
+                        </div>
+                    </div>
+                    <li><i class="fas fa-user-cog"></i>Detalle de cuenta</li>
+                    <li (click)="logout();"><i class="fas fa-sign-out-alt"></i>Cerrar sesión</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

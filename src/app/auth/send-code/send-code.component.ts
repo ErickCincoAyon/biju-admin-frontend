@@ -33,10 +33,8 @@ export class SendCodeComponent implements OnInit, OnDestroy {
     /** Select the access_token */
     this._store.pipe( takeUntil( this.componentDestroyed$ ), select( selectAccessToken )).subscribe(( value ) => {
 
-      if ( value ) {
-        /** Send the token to get the admin Data */
-        this._store.dispatch( getAdmin({ token: value }));
-      }
+      /** Send the token to get the admin Data */
+      ( value ) && this._store.dispatch( getAdmin({ token: value }));
 
     });
     

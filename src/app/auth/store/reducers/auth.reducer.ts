@@ -23,6 +23,8 @@ const _authReducer = createReducer(
     on( actions.renewAccessToken, state => ({ ...state })),
     on( actions.successRenewAccessToken, ( state, { res }) => ({ ...state, access_token: res.data?.access_token })),
 
+    on( actions.logout, state => ( initialAuthState )),
+
     on( actions.authError, ( state, { res }) => ({ ...state, error: res.error })),
     on( actions.resetAuthError, ( state ) => ({ ...state, error: undefined })),
 );

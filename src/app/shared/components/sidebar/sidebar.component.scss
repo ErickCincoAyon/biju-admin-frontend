@@ -53,12 +53,20 @@
     .nav-sidebar {
         width: 90%;
         margin: 0 auto;
-        margin-top: -8px;
         list-style: none;
         padding: 0;
+        padding-top: 17px;
+        height: calc(100% - 105px);
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
 
         .nav-section {
-            padding: 20px 10px;
+            padding: 20px 0px;
+            // padding: 20px 10px;
             border-bottom: 1px solid $border-light;
             position: relative;
 
@@ -78,7 +86,7 @@
                 font-size: 14px;
                 color: $font-dark;
                 padding: 12px 20px;
-                transition: all .3s ease-in-out;
+                transition: $transition;
                 border-radius: 2px;
                 cursor: pointer;
 
@@ -88,19 +96,17 @@
 
                 span {
                     float: right;
-                    i {
-                        color: $main;
-                    }
                 }
 
                 &:hover {
-                    color: $font-dark;
-                    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+                    color: $font-white;
+                    box-shadow: $shadow;
+                    background-color: $dark;
                 }
             }
 
             &:first-child {
-                padding: 25px 0 25px;
+                padding: 0 0 25px;
 
                 li {
                     font-size: 16px;
@@ -122,4 +128,8 @@
             }
         }
     }
+}
+
+.fix-i {
+    padding-right: 5px;
 }

@@ -113,5 +113,9 @@ export class AuthService {
   public getAccessToken(): string {
     return localStorage.getItem('access_token')!;
   }
+
+  public logout(): void {
+    localStorage.removeItem('access_token');
+  }
   
 }

@@ -17,5 +17,26 @@
     .dashboard-right {
         flex: 1 0 80%;
         height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+          
+        /* Track */
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+          }
+           
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: $main-light; 
+        }
+          
+        /* Handle on hover */
+        &::-webkit-scrollbar-thumb:hover {
+            background: $main;
+        }
     }
 }
