@@ -3,9 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard.routing';
 import { SharedModule } from '../shared/shared.module';
-
 import { DashboardComponent } from './dashboard.component';
-import { MainMenuModule } from './main-menu/main-menu.module';
 
 @NgModule({
   declarations: [
@@ -14,8 +12,6 @@ import { MainMenuModule } from './main-menu/main-menu.module';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    // TODO: Dashboard modules
-    MainMenuModule,
     SharedModule,
   ]
 })
