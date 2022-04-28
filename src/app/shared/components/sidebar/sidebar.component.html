@@ -10,35 +10,35 @@
         </div>
         <div class="nav-section">
             <h4>Catalogos</h4>
-            <li>Lista de catalogos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li>Agregar catalogo<span><i class="fas fa-plus-circle"></i></span></li>
+            <li routerLink="/catalogos/lista-de-catalogos">Lista de catalogos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li routerLink="/catalogos/agregar-catalogo">Agregar catalogo<span><i class="fas fa-plus-circle"></i></span></li>
         </div>
         <div class="nav-section">
             <h4>Modelos de vehiculo</h4>
-            <li>Lista de modelos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li>Lista de marcas<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li>Agregar modelo<span><i class="fas fa-plus-circle"></i></span></li>
+            <li routerLink="/modelos-de-vehiculo/lista-de-modelos-de-vehiculo">Lista de modelos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li routerLink="/modelos-de-vehiculo/lista-de-marcas">Lista de marcas<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li routerLink="/modelos-de-vehiculo/agregar-modelo-de-vehiculo">Agregar modelo<span><i class="fas fa-plus-circle"></i></span></li>
         </div>
         <div class="nav-section">
             <h4>Vehiculos</h4>
-            <li>Lista de vehiculos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li>Lista de vehiculos inactivos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li routerLink="/vehiculos/lista-de-vehiculos">Lista de vehiculos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li routerLink="/vehiculos/lista-de-vehiculos-inactivos">Lista de vehiculos inactivos<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
         </div>
         <div class="nav-section">
             <h4>Dealers</h4>
-            <li>Lista de dealers<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li>Lista de solicitudes<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li *ngIf="admin && admin.admin === 'challenger'">Agregar dealer<span><i class="fas fa-plus-circle"></i></span></li>
+            <li routerLink="/dealers/lista-de-dealers">Lista de dealers<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li routerLink="/dealers/lista-de-solicitudes">Lista de solicitudes<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li *ngIf="admin && admin.admin === 'challenger'" routerLink="/dealers/agregar-dealer">Agregar dealer<span><i class="fas fa-plus-circle"></i></span></li>
         </div>
         <div class="nav-section">
             <h4>Usuarios</h4>
-            <li>Lista de usuarios<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li *ngIf="admin && admin.admin === 'challenger'">Agregar usuario<span><i class="fas fa-plus-circle"></i></span></li>
+            <li routerLink="/usuarios/lista-de-usuarios">Lista de usuarios<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li *ngIf="admin && admin.admin === 'challenger'" routerLink="/usuarios/agregar-usuario">Agregar usuario<span><i class="fas fa-plus-circle"></i></span></li>
         </div>
         <div class="nav-section">
             <h4>Administradores</h4>
-            <li>Lista de administradores<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
-            <li *ngIf="admin && admin.admin === 'challenger'">Agregar administrador<span><i class="fas fa-plus-circle"></i></span></li>
+            <li routerLink="/administradores/lista-de-administradores">Lista de administradores<span><i class="fas fa-ellipsis-v fix-i"></i></span></li>
+            <li *ngIf="admin && admin.admin === 'challenger'" routerLink="/administradores/agregar-administrador">Agregar administrador<span><i class="fas fa-plus-circle"></i></span></li>
         </div>
     </ul>
 </div>
