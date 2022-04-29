@@ -1,9 +1,11 @@
 <div class="dashboard">
-    <div class="dashboard-left">
+    <div class="sidebar" #sidebar>
         <app-sidebar></app-sidebar>
     </div>
-    <div class="dashboard-right">
-        <app-header></app-header>
-        <router-outlet></router-outlet>
+    <div class="main-content">
+        <app-header (showSidebar)="toggleSidebarHandler($event)"></app-header>
+        <div class="router-outlet">
+            <router-outlet></router-outlet>
+        </div>
     </div>
 </div>

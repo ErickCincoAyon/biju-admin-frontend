@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
 import { AdminModel } from '../../../auth/models/admin.model';
 import { Subject, takeUntil } from 'rxjs';
 import { select, Store } from '@ngrx/store';
@@ -10,6 +10,7 @@ import { AuthService } from '../../../auth/services/auth.service';
 import { logout } from 'src/app/auth/store/actions/auth.action';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { FormBuilder, Validators } from '@angular/forms';
 
 const serverUrl = environment.wsUrl;
 
@@ -21,12 +22,18 @@ const serverUrl = environment.wsUrl;
 
 export class HeaderComponent implements OnInit, OnDestroy {
 
+  @Output() showSidebar = new EventEmitter<boolean>();
   @ViewChild('adminCard') adminCard!: ElementRef;
+
   public componentDestroyed$ = new Subject();
+  public searchForm = this._fb.group({
+    search: ['', [ Validators.required, Validators.maxLength(40) ] ],
+  });
 
   public url = serverUrl;
   public admin!: AdminModel;
   public settings: boolean = false;
+  public sidebar: boolean = false;
 
   constructor(
     private readonly _store: Store<AuthState>,
@@ -34,15 +41,24 @@ export class HeaderComponent implements OnInit, OnDestroy {
     private readonly _authService: AuthService,
     private readonly _router: Router,
     private readonly _toastrService: ToastrService,
+    private readonly _fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
+    console.log( this.sidebar );
     this._store.pipe( takeUntil( this.componentDestroyed$ ),select( selectAdmin )).subscribe(( value ) => {
       
       this.admin = ( value! ) && value;
       console.log( this.admin );
 
     });
+  }
+
+  toggleSidebar( show: boolean ): void {
+    
+    this.sidebar = show;
+    this.showSidebar.emit( show );
+
   }
 
   toggleSettings( show: boolean ): void {
@@ -53,15 +69,29 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   }
 
+  search(): void {
+
+    console.log( this.searchForm.getRawValue() );
+
+  }
+
   @HostListener('document:click', ['$event']) onDocumentClick(event: any) {
     
     ( this.settings ) && this.toggleSettings( false );
+    if ( this.sidebar ) {
+      this.sidebar = false;
+      this.showSidebar.emit( false );
+    }
     
   }
 
   @HostListener('document:keydown.escape', ['$event']) onKeydownHandler(event: KeyboardEvent) {
     
     ( this.settings ) && this.toggleSettings( false );
+    if ( this.sidebar ) {
+      this.sidebar = false;
+      this.showSidebar.emit( false );
+    }
     
   }
 

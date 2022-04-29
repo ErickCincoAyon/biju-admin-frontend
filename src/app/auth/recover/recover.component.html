@@ -4,14 +4,16 @@
         <img src="../../../assets/old-car.svg" alt="old-car.svg">
         <h3>Favor de ingresar su correo electronico para iniciar la recuperación de su cuenta.</h3>
         <form [formGroup]="recoverForm" (ngSubmit)="recover();">
-            <app-input 
-                type="text"
-                placeholder="Email: email@email.com"
-                [parentForm]="recoverForm"
-                fieldName="email"
-                formControlName="email"
-            ></app-input>
-    
+            <div class="input-div">
+                <app-input 
+                    type="text"
+                    placeholder="Email: email@email.com"
+                    [parentForm]="recoverForm"
+                    fieldName="email"
+                    formControlName="email"
+                ></app-input>
+            </div>
+            
             <button 
                 type="submit" [disabled]="recoverForm.invalid" 
                 [ngClass]="recoverForm.invalid ? 'btn btn-disabled' : 'btn'"

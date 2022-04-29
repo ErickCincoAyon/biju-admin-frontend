@@ -4,13 +4,15 @@
         <img src="../../../assets/old-car.svg" alt="old-car.svg">
         <h3>Enviar codigo de acceso.</h3>
         <form [formGroup]="codeForm" (ngSubmit)="sendCode();">
-            <app-input 
-                type="text"
-                placeholder="Codigo: c0dE3"
-                [parentForm]="codeForm"
-                fieldName="code"
-                formControlName="code"
-            ></app-input>
+            <div class="input-div">
+                <app-input 
+                    type="text"
+                    placeholder="Codigo: c0dE3"
+                    [parentForm]="codeForm"
+                    fieldName="code"
+                    formControlName="code"
+                ></app-input>
+            </div>
     
             <button 
                 type="submit" [disabled]="codeForm.invalid" 

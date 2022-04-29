@@ -4,21 +4,24 @@
         <img src="../../../assets/old-car.svg" alt="old-car.svg">
         <h3>Bienvenido de nuevo, favor de iniciar sesion en su cuenta.</h3>
         <form [formGroup]="loginForm" (ngSubmit)="login();">
-            <app-input 
-                type="text"
-                placeholder="Email: email@email.com"
-                [parentForm]="loginForm"
-                fieldName="email"
-                formControlName="email"
-            ></app-input>
-    
-            <app-input 
-                type="password"
-                placeholder="Password: ******"
-                [parentForm]="loginForm"
-                fieldName="password"
-                formControlName="password"
-            ></app-input>
+            <div class="input-div">
+                <app-input 
+                    type="text"
+                    placeholder="Email: email@email.com"
+                    [parentForm]="loginForm"
+                    fieldName="email"
+                    formControlName="email"
+                ></app-input>
+            </div>
+            <div class="input-div">
+                <app-input 
+                    type="password"
+                    placeholder="Password: ******"
+                    [parentForm]="loginForm"
+                    fieldName="password"
+                    formControlName="password"
+                ></app-input>
+            </div>
     
             <button 
                 type="submit" [disabled]="loginForm.invalid" 

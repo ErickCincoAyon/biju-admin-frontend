@@ -2,18 +2,74 @@
 
 .header {
     width: 100%;
-    height: 80px;
+    height: 65px;
     background-color: $white;
-    box-shadow: $box-shadow;
+    border-bottom: 1px solid $border-light;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+
+    .left-side {
+        height: 65px;
+        max-width: 400px;
+        padding: 0 30px 0 10px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .bars-div {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            i {
+                color: $font-dark;
+                font-size: 20px;
+            }
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+
+            .input-search {
+                width: 200px;
+                height: 30px;
+                display: flex;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            button {
+                margin-left: 25px;
+                border: 0;
+                background-color: $action;
+                border-radius: 2px;
+                padding: 0 15px;
+                cursor: pointer;
+                transition: $transition;
+
+                i {
+                    color: $font-white;
+                }
+
+                &:hover {
+                    background-color: $dark;
+                    box-shadow: $shadow;
+                }
+            }
+        }
+    }
 
     .right-side {
         height: 100%;
         max-width: 330px;
         margin-left: auto;
-        padding: 0 30px;
+        padding: 0 20px 0 30px;
 
         .admin-info {
             width: 100%;
@@ -26,10 +82,15 @@
 
             i {
                 font-size: 20px;
-                color: $font-dark;
+                color: $font-gray;
                 transition: $transition;
-                margin-right: 10px;
+                margin-right: 25px;
+                margin-top: -3px;
                 cursor: pointer;
+
+                &:hover {
+                    color: $font-dark;
+                }
             }
             
             button {
@@ -55,19 +116,19 @@
             }
 
             .admin-image {
-                width: 25px;
-                height: 25px;
-                border-radius: 50%;
+                width: 33px;
+                height: 33px;
+                border-radius: 3px;
+                margin-top: 1px;
                 position: relative;
                 transition: $transition;
                 cursor: pointer;
 
                 img {
-                    width: 25px;
-                    height: 25px;
+                    width: 33px;
+                    height: 33px;
                     object-fit: cover;
-                    border-radius: 50%;
-                    border: 1px solid $border-dark;
+                    border-radius: 3px;
                     transition: $transition;
                     margin-top: -2px;
                 }
@@ -79,23 +140,19 @@
                     height: 10px;
                     background-color: $green;
                     border-radius: 50%;
-                    bottom: -1px;
-                    right: -3px;
+                    bottom: 0px;
+                    right: -4px;
                     box-shadow: $box-shadow;
-                }
-
-                &:hover {
-                    box-shadow: $shadow;
                 }
             }
 
-            .admin-card {
+            .admin-overlay {
                 position: absolute;
-                width: calc( 100% + 60px );
+                width: 350px;
                 background-color: white;
                 top: 100%;
                 margin-left: 500%;
-                box-shadow: $box-shadow;
+                border: 1px solid $border-light;
                 border-radius: 2px;
 
                 ul {
@@ -136,7 +193,7 @@
                             h4 {
                                 position: absolute;
                                 bottom: 0;
-                                width: calc( 100% - 20px );
+                                width: 110px;
                                 color: $font-white;
                                 text-transform: uppercase;
                                 padding: 10px 0;

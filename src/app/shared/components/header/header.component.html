@@ -1,24 +1,41 @@
 <div class="header">
+    <div class="left-side" (click)="$event.stopPropagation();">
+
+        <div class="bars-div" (click)="toggleSidebar( !sidebar );">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <form [formGroup]="searchForm" (ngSubmit)="search();">
+            <div class="input-search">
+                <app-input 
+                    type="text"
+                    placeholder="Busqueda ..."
+                    [parentForm]="searchForm"
+                    fieldName="search"
+                    formControlName="search"
+                ></app-input>
+            </div>
+
+            <button
+                type="submit" [disabled]="searchForm.invalid" 
+                [ngClass]="searchForm.invalid ? 'btn-disabled' : ''"
+            ><i class="fas fa-search"></i></button>
+        </form>
+
+    </div>
+
     <div class="right-side">
         <div class="admin-info" *ngIf="admin" (click)="$event.stopPropagation();">
-            <i class="fas fa-bell"></i>
-            <i class="fas fa-inbox"></i>
-            <button 
-                (click)="toggleSettings( !settings );"
-                [ngClass]="{ 
-                    'challenger-bg': admin.admin === 'challenger',
-                    'master-bg': admin.admin === 'master',
-                    'diamond-bg': admin.admin === 'diamond',
-                    'platinum-bg': admin.admin === 'platinum'
-                }"
-            ><i class="fas fa-check-circle"></i>{{ admin.admin }}</button>
+            <i class="far fa-bell"></i>
+            <i class="far fa-comment-alt"></i>
+            <i class="fas fa-expand"></i>
             <div class="admin-image" (click)="toggleSettings( !settings );">
                 <img src="{{ url + '/image/admin/' + admin.avatar }}" alt="avatar.png">
                 <div class="dot-online"></div>
             </div>
             
 
-            <div class="admin-card" #adminCard>
+            <div class="admin-overlay" #adminCard>
                 <ul>
                     <div 
                         class="header-card"
