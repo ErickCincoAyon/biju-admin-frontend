@@ -50,6 +50,26 @@
     }
 }
 
+.btn-search {
+    margin-left: 25px;
+    border: 0;
+    background-color: $action;
+    border-radius: 2px;
+    padding: 7px 15px;
+    cursor: pointer;
+    transition: $transition;
+    color: $font-white;
+
+    i {
+        color: $font-white;
+    }
+
+    &:hover {
+        background-color: $dark;
+        box-shadow: $shadow;
+    }
+}
+
 .btn-disabled {
     background-color: $disabled !important;
 }
@@ -69,4 +89,19 @@
 
 .platinum-bg {
 
+}
+
+.active-item {
+    color: $green !important;
+}
+
+.inactive-item {
+    color: $red !important;
+}
+
+.page-title {
+    padding: 5px 5px 20px;
+    font-size: 23px;
+    letter-spacing: .5px;
+    color: $font-dark;
 }

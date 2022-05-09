@@ -43,25 +43,6 @@
                 align-items: center;
                 overflow: hidden;
             }
-
-            button {
-                margin-left: 25px;
-                border: 0;
-                background-color: $action;
-                border-radius: 2px;
-                padding: 0 15px;
-                cursor: pointer;
-                transition: $transition;
-
-                i {
-                    color: $font-white;
-                }
-
-                &:hover {
-                    background-color: $dark;
-                    box-shadow: $shadow;
-                }
-            }
         }
     }
 
@@ -154,6 +135,7 @@
                 margin-left: 500%;
                 border: 1px solid $border-light;
                 border-radius: 2px;
+                z-index: 2;
 
                 ul {
                     height: 100%;

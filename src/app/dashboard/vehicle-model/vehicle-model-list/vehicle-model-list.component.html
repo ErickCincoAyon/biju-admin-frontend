@@ -1,1 +1,10 @@
-<p>vehicle-model-list works!</p>
+<div class="vehicle-model-list">
+    <h2 class="page-title">Modelos de vehiculos</h2>
+    <app-table 
+        *ngIf="vehiclemodels && paginator"
+        [columns]="tableColumns" 
+        [data]="vehiclemodels"
+        [paginator]="paginator"
+        (action)="actionHandler( $event );"
+    ></app-table>
+</div>

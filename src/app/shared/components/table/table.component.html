@@ -1,0 +1,88 @@
+<div class="table">
+    <div class="table-header">
+        <form class="search-form" [formGroup]="searchForm" (ngSubmit)="search();">
+            <app-input 
+                type="text"
+                placeholder="Busqueda ..."
+                [parentForm]="searchForm"
+                fieldName="search"
+                formControlName="search"
+            ></app-input>
+
+            <button
+                type="submit" [disabled]="searchForm.invalid" 
+                [ngClass]="searchForm.invalid ? 'btn-search btn-disabled' : 'btn-search'"
+            ><i class="fas fa-search"></i></button>
+
+            <div class="list-actions">
+                <i class="fas fa-ellipsis-v"></i>
+            </div>
+        </form>
+
+        <div class="table-filters">
+            <h3>Filtros</h3>
+
+            <div class="filter-list">
+                <ul>
+                    <li>nombre <i class="fas fa-caret-down"></i></li>
+                    <li>marca <i class="fas fa-caret-down"></i></li>
+                    <li>modelo <i class="fas fa-caret-down"></i></li>
+                    <li>generacion <i class="fas fa-caret-down"></i></li>
+                    <li>activo <i class="fas fa-caret-down"></i></li>
+                </ul>
+                <div class="filter-btn">
+                    <button class="btn-search">Filtrar <i class="fas fa-filter"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="table-body">
+        <h3>Tabla informativa</h3>
+        <div class="wrapper">
+            <div class="data-table">
+              <div class="row header">
+                <div class="cell" *ngFor="let column of columns">
+                    {{ column.value }}
+                </div>
+              </div>
+              
+              <div class="row"  *ngFor="let item of data">
+                <ng-container *ngFor="let column of columns">
+                    <div class="cell" data-title="{{ column.value }}" *ngIf="column.type === 'string'">
+                        {{ item[ column.apiValue ]}}
+                    </div>
+                    <div class="cell" data-title="{{ item[ column.value ]}}" *ngIf="column.type === 'boolean'">
+                        <i class="fas fa-check active-item" *ngIf="item[ column.apiValue ]"></i>
+                        <i class="fas fa-times inactive-item" *ngIf="!item[ column.apiValue ]"></i>
+                    </div>
+                    <div class="cell center-icons" data-title="{{ item[ column.value ]}}" *ngIf="column.type === 'action'">
+                        <i class="fas fa-edit" (click)="actionToDo( item._id, 'edit' );"></i>
+                        <i class="fas fa-trash" (click)="actionToDo( item._id, 'delete' );"></i>
+                    </div>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <div class="table-footer">
+        <div class="paginator">
+            <ul>
+                <li class="limit" (click)="toggleLimitSelector( !showLimitSelector );">
+                    Items: {{ paginator.limit }}<span><i class="fas fa-caret-up"></i></span>
+
+                    <div class="limit-selector" #limitSelector></div>
+                </li>
+                <li (click)="actionPaginator( 'first' );"><i class="fas fa-angle-double-left"></i></li>
+                <li (click)="actionPaginator( 'prev' );"><i class="fas fa-caret-left"></i></li>
+                <li>{{ paginator.page }}</li>
+                <li>/</li>
+                <li (click)="actionPaginator( 'last' );">{{ paginator.totalPages }}</li>
+                <li (click)="actionPaginator( 'next' );"><i class="fas fa-caret-right"></i></li>
+                <li (click)="actionPaginator( 'last' );"><i class="fas fa-angle-double-right"></i></li>
+            </ul>
+        </div>
+    </div>
+</div>
+

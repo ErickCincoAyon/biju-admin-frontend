@@ -4,13 +4,13 @@ import { map, Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { LoginModel } from '../models/login.model';
 import { CodeToLoginModel } from '../models/code-to-login.model';
-import { GeneralModel } from '../../models/general.model';
-import { MessageModel } from '../../models/message.model';
 import { AdminModel } from '../models/admin.model';
 import { Store } from '@ngrx/store';
 import { AuthState } from '../store/auth.state';
 import { selectAccessToken, selectAdmin } from '../store/selectors/auth.selector';
 import { NewPasswordModel } from '../models/new-password.model';
+import { MessageModel } from '../../shared/models/message.model';
+import { GeneralModel } from '../../shared/models/general.model';
 
 const url = environment.wsUrl;
 

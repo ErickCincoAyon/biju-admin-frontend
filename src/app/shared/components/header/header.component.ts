@@ -45,13 +45,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    console.log( this.sidebar );
+
     this._store.pipe( takeUntil( this.componentDestroyed$ ),select( selectAdmin )).subscribe(( value ) => {
       
       this.admin = ( value! ) && value;
-      console.log( this.admin );
 
     });
+    
   }
 
   toggleSidebar( show: boolean ): void {

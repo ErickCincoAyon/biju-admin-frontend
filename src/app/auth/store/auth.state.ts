@@ -1,4 +1,4 @@
-import { ErrorModel } from '../../models/error.model';
+import { ErrorModel } from '../../shared/models/error.model';
 import { AdminModel } from '../models/admin.model';
 
 export const authFeatureName = 'AUTH';

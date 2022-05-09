@@ -7,6 +7,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
+import { TableComponent } from './components/table/table.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
+    TableComponent,
   ],
   exports: [
     InputComponent,
@@ -22,6 +24,7 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     HeaderComponent,
     FooterComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,

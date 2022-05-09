@@ -1,10 +1,10 @@
 import { createAction, props } from '@ngrx/store';
 import { LoginModel } from '../../models/login.model';
-import { GeneralModel } from '../../../models/general.model';
-import { MessageModel } from '../../../models/message.model';
 import { CodeToLoginModel } from '../../models/code-to-login.model';
 import { AdminModel } from '../../models/admin.model';
 import { NewPasswordModel } from '../../models/new-password.model';
+import { GeneralModel } from '../../../shared/models/general.model';
+import { MessageModel } from '../../../shared/models/message.model';
 
 export enum AuthActionTypes {
     AUTH_SIGN_IN = '[Auth] Sign in',

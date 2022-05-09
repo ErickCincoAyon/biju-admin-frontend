@@ -1,0 +1,318 @@
+@import '../../../scss/colors.scss';
+
+.table {
+    width: 100%;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    border-radius: 2px;
+    overflow: hidden;
+
+    .table-header {
+        width: 100%;
+
+        .search-form {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            height: 30px;
+            overflow: hidden;
+            padding: 0 20px;
+
+            .list-actions {
+                position: relative;
+                margin-left: auto;
+
+                i {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .table-filters {
+            margin-top: 10px;
+            padding: 0 20px;
+            border-top: 1px solid $border-light;
+            position: relative;
+
+            h3 {
+                color: $font-gray-light;
+                margin: 0;
+                font-weight: lighter;
+                letter-spacing: 1px;
+                font-size: 15px;
+                position: absolute;
+                top: -10px;
+                background-color: $white;
+                padding: 0 16.5px;
+            }
+
+            .filter-list {
+                width: 100%;
+                height: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                margin-top: 20px;
+
+                ul {
+                    flex: 0 0 80%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    list-style: none;
+
+                    li {
+                        margin-right: 20px;
+                        padding: 0 20px;
+                        height: 100%;
+                        display: flex;
+                        align-items: center;
+                        border-radius: 2px;
+                        text-transform: uppercase;
+                        font-size: 12px;
+                        font-weight: bold;
+                        background-color: $body-color;
+                        color: $font-dark;
+                        letter-spacing: 1px;
+                        box-shadow: $box-shadow;
+                        cursor: pointer;
+                        transition: $transition;
+
+                        i {
+                            margin-left: 10px;
+                        }
+
+                        &:hover {
+                            background-color: $dark;
+                            color: $font-white;
+                            box-shadow: $shadow;
+                        }
+                    }
+                }
+
+                .filter-btn {
+                    flex: 0 0 20%;
+                    display: flex;
+
+                    button {
+                        margin-left: auto;
+                        font-size: 15px;
+                        letter-spacing: 1px;
+                        box-shadow: $box-shadow;
+                        border-radius: 2px;
+
+                        i {
+                            margin-left: 5px;
+                            font-size: 14px;
+                        }
+
+                        &:hover {
+                            box-shadow: $shadow;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .table-body {
+        margin-top: 25px;
+        padding: 0 20px;
+        border-top: 1px solid $border-light;
+        position: relative;
+
+        h3 {
+            color: $font-gray-light;
+            margin: 0;
+            font-weight: lighter;
+            letter-spacing: 1px;
+            font-size: 15px;
+            position: absolute;
+            top: -10px;
+            background-color: $white;
+            padding: 0 16.5px;
+        }
+
+        .wrapper {
+            margin: 20px auto 0;
+            max-width: 1920px;
+            border-radius: 3px;
+        }
+          
+        .data-table {
+            margin: 0;
+            width: 100%;
+            display: table;
+            border-bottom: 1px solid $border-light;
+        }
+        
+          @media screen and (max-width: 580px) {
+            .table {
+              display: block;
+            }
+          }
+          
+        .row {
+            display: table-row;
+            background-color: $blue-odd;
+            cursor: pointer;
+            transition: $transition;
+            color: $font-gray;
+            font-size: 13px;
+            line-height: 20px;
+            font-weight: 400;
+            
+            &:hover {
+                color: $font-dark;
+            }
+        }
+        
+        .row:nth-of-type(odd) {
+            background-color: $white;
+        }
+          
+        .row.header {
+            font-size: 14px;
+            font-weight: 900;
+            color: $font-dark;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        @media screen and (max-width: 580px) {
+            .row {
+              padding: 14px 0 7px;
+              display: block;
+            }
+            .row.header {
+              padding: 0;
+              height: 6px;
+            }
+            .row.header .cell {
+              display: none;
+            }
+            .row .cell {
+              margin-bottom: 10px;
+            }
+            .row .cell:before {
+              margin-bottom: 3px;
+              content: attr(data-title);
+              min-width: 98px;
+              font-size: 10px;
+              line-height: 10px;
+              font-weight: bold;
+              text-transform: uppercase;
+              color: #969696;
+              display: block;
+            }
+        }
+          
+        .cell {
+            padding: 12px 20px;
+            display: table-cell;
+            text-align: center;
+            position: relative;
+
+            &:nth-child(1) {
+                text-align: left;
+            }
+
+            &:nth-last-child(1) {
+                text-align: right;
+            }
+        }
+
+        .cell.center-icons {
+            text-align: right;
+
+            i {
+                margin-right: 20px;
+                transition: $transition;
+                font-size: 15px;
+
+                &:hover {
+                    color: $action;
+                }
+            }
+        }
+          @media screen and (max-width: 580px) {
+            .cell {
+                padding: 2px 16px;
+                display: block;
+                text-align: left;
+
+                &:nth-last-child(1) {
+                    text-align: left;
+                }
+            }
+          }
+    }
+
+    .table-footer {
+        padding: 0 20px;
+        display: flex;
+        flex-wrap: wrap;
+        user-select: none;
+
+        .paginator {
+            width: 490px;
+            height: 80px;
+            margin-left: auto;
+            
+            ul {
+                width: 100%;
+                height: 100%;
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                li {
+                    font-size: 12px;
+                    font-weight: bold;
+                    text-transform: capitalize;
+                    padding: 10px 15px;
+                    border-radius: 2px;
+                    cursor: pointer;
+                    letter-spacing: 1px;
+                    color: $font-dark;
+                    background-color: $body-color;
+                    box-shadow: $box-shadow;
+                    transition: $transition;
+
+                    &:hover {
+                        background-color: $dark;
+                        color: $font-white;
+                        box-shadow: $shadow;
+                    }
+                }
+
+                .limit {
+                    position: relative;
+
+                    span {
+                        margin-left: 10px;
+                    }
+
+                    .limit-selector {
+                        width: 100%;
+                        height: 100px;
+                        background-color: $body-color;
+                        position: absolute;
+                        left: -1px;
+                        top: -105px;
+                        border-top-left-radius: 3px;
+                        border-top-right-radius: 3px;
+                        border: 1px solid $border-light;
+                        transform: scaleY(0);
+                        transform-origin: bottom;
+                    }
+                }
+            }
+        }
+    }
+    
+}
